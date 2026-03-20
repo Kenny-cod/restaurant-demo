@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Iosevka+Charon+Mono:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
+:root{
+--primary: #fea116;   /* gold/orange */
+  --dark: #0f0f0f;      /* deep black */
+  --light: #ffffff;     /* white */
+  --gray: #1a1a1a; 
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -7,11 +14,13 @@
 }
 
 body{
-    background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(images/food06.jpg);
+    background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7));
     background-size: cover;
     background-position: center;
     min-height: 100vh;
     background-attachment: scroll;
+     background-color: #0f0f0f;
+  color: white;
    
 }
 
@@ -79,15 +88,24 @@ nav{
 }
 
 
-.book-table{
-    background-color: #fea116;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    font-weight: bold;
-    border-radius: 5%;
+
+
+.book-table {
+  background-color: var(--primary);
+  color: black;
+  border: none;
+  padding: 12px 25px;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
 }
+
+.book-table:hover {
+  background-color: #d48806;
+  transform: translateY(-3px);
+}
+
 
 .menu-toggle{
     display: none;
@@ -96,12 +114,17 @@ nav{
     font-size: 2rem;
 }
 
-.hero{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 8rem 4rem 4rem;
-    color: white;
+.hero {
+  height: 100vh;
+  background: 
+    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    url("images/food06.jpg");
+
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding: 0 5%;
 }
 
 .hero-content{
@@ -112,15 +135,17 @@ nav{
 }
 
 .hero-content h1{
-    font-size: 4rem;
+    color: white;
     margin-bottom: 1rem;
-    animation: fadeleft 1s ease-out;
+     font-size: 3.5rem;
+  line-height: 1.2;
 }
 
 .hero-content p {
-margin-bottom: 2rem;
+    color: white;
 opacity: 0.7;
-animation: fadeleft 1s ease-out 0.3s;
+ margin: 20px 0;
+  opacity: 0.8;
 animation-fill-mode: both;
 }
 
@@ -344,6 +369,28 @@ animation-fill-mode: both;
         padding-left: 0;
     }
 }
+
+
+@keyframes fadeSlide {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+}
+
+.animate {
+    animation: fadeSlide 4s ease-in-out;
+}
+
+
 
 html{
     scroll-behavior: smooth;
